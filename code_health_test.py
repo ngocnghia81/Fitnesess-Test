@@ -1,0 +1,95 @@
+import os
+import re
+import sys
+
+# List of files or directories to exclude
+excluded_paths = [
+    'lib/core/router',
+    'integration_test',
+    '.dart_tool',
+    'fitnesse-results.xml',
+    'api-test-results.xml',
+    'db-test-results.xml'
+]
+
+# Converting relative paths to absolute paths
+excluded_paths = [os.path.abspath(os.path.join(os.getcwd(), path)) for path in excluded_paths]
+
+length_issues = []
+dependency_issues = []
+
+def is_excluded(path):
+    for excluded_path in excluded_paths:
+        if path.startswith(excluded_path):
+            return True
+    return False
+
+def check_files_in_directory(directory):
+    presentation_files = []
+    data_files = []
+    for root, dirs, files in os.walk(directory):
+        # Filter out excluded directories
+        dirs[:] = [d for d in dirs if not is_excluded(os.path.abspath(os.path.join(root, d)))]
+        for file in files:
+            file_path = os.path.abspath(os.path.join(root, file))
+            if is_excluded(file_path):
+                continue
+            if file.endswith(('.java', '.py', '.c', '.cpp', '.h', '.cs')):
+                if 'lib/features' in file_path:
+                    if '/presentation/' in file_path:
+                        presentation_files.append(file_path)
+                    elif '/data/' in file_path:
+                        data_files.append(file_path)
+                check_file_length(file_path)
+
+    check_presentation_dependencies(presentation_files, data_files)
+
+    # Output summary
+    if length_issues or dependency_issues:
+        print("\nSummary of issues found:")
+        if length_issues:
+            print(f"- {len(length_issues)} files exceed maximum length")
+        if dependency_issues:
+            print(f"- {len(dependency_issues)} dependency violations found")
+        # Exit with a non-zero code if there are any issues. This is useful for CI/CD pipelines.
+        sys.exit(1)
+    else:
+        print("\nNo violations found. Code health is good!")
+
+def check_file_length(file_path):
+    max_lines = 300
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+            if len(lines) > max_lines:
+                length_issues.append((file_path, len(lines)))
+                print(f'File {file_path} has {len(lines)} lines of code, which is more than the allowed {max_lines} lines.')
+    except UnicodeDecodeError:
+        # Skip binary files or files with incompatible encoding
+        pass
+    except Exception as e:
+        print(f"Error processing file {file_path}: {str(e)}")
+
+def check_presentation_dependencies(presentation_files, data_files):
+    data_imports = {os.path.splitext(os.path.basename(f))[0] for f in data_files}
+    for file_path in presentation_files:
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                content = file.read()
+                for data_import in data_imports:
+                    if re.search(r'\bimport\b.*\b' + re.escape(data_import) + r'\b', content):
+                        dependency_issues.append((file_path, data_import))
+        except Exception as e:
+            print(f"Error checking dependencies in {file_path}: {str(e)}")
+
+    if dependency_issues:
+        print('\nDependency issues found:')
+        for issue in dependency_issues:
+            print(f'Presentation file {issue[0]} depends on data module {issue[1]}')
+
+if __name__ == "__main__":
+    print("Starting code health check...")
+    directory = os.getcwd()  # Current project directory
+    check_files_in_directory(directory)
+    if not length_issues and not dependency_issues:
+        print("No violations found.") 
