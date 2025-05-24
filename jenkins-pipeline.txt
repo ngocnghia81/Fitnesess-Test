@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code...'
+                // Bạn có thể thêm lệnh checkout nếu sử dụng Git
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Biên dịch lại các fixture Java nếu cần
+                bat '''
+                    cd D:\\Documents\\FitNesseFixtures
+                    javac -cp "D:\\workspace\\university\\Nam3_HK2\\KiemDinhPhanMem\\Fitnesse\\fitnesse-standalone.jar;D:\\Documents\\FitNesseFixtures\\sqlite-jdbc-3.42.0.0.jar" -d . D:\\Documents\\FitNesseFixtures\\LoginApiFixture.java D:\\Documents\\FitNesseFixtures\\DatabaseFixture.java
+                '''
+            }
+        }
+        
+        stage('Run FitNesse Tests') {
+            steps {
+                echo 'Running FitNesse tests...'
+                
+                // Chạy FitNesse tests và tạo kết quả XML với tên file cụ thể
+                bat '''
+                    cd D:\\Documents\\FitNesseFixtures
+                    java -jar D:\\workspace\\university\\Nam3_HK2\\KiemDinhPhanMem\\Fitnesse\\fitnesse-standalone.jar -c "ComprehensiveSuite?suite&format=xml&includehtml" -d D:\\Documents\\FitNesseFixtures -r fitnesse-results.xml -p 8083
+                '''
+                
+                // Sao chép file kết quả vào workspace Jenkins
+                bat '''
+                    copy D:\\Documents\\FitNesseFixtures\\fitnesse-results.xml %WORKSPACE%\\fitnesse-results.xml
+                '''
+                
+                // Lưu kết quả test
+                junit 'fitnesse-results.xml'
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo 'Test execution completed'
+        }
+        success {
+            echo 'All tests passed!'
+        }
+        failure {
+            echo 'Some tests failed!'
+        }
+    }
+}

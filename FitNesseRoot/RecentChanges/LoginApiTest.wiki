@@ -1,0 +1,10 @@
+!define TEST_SYSTEM {slim}
+!define COMMAND_PATTERN {java -cp %p fitnesse.slim.SlimService}
+!path D:\Documents\FitNesseFixtures
+!path D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar
+
+!|LoginApiFixture|
+|username|password|result?|errorMessage?|
+|johnd   |m38rmF$ |success|none|
+|johnd   |sai_pass|fail  |Unauthorized|
+|fakeuser|123456  |fail  |User not found|

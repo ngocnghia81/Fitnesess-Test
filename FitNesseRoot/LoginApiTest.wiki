@@ -1,0 +1,45 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+!define COMMAND_PATTERN {java -cp %p fitnesse.slim.SlimService}
+!path D:\Documents\FitNesseFixtures
+!path D:\Documents\FitNesseFixtures\fixtures
+!path D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar
+!path D:\Documents\FitNesseFixtures\sqlite-jdbc-3.42.0.0.jar
+
+!1 API Login Test
+
+This test verifies the login functionality of the API using the LoginApiFixture.
+
+!2 Test Cases
+
+!3 Successful Login
+!|Import|
+|fixtures|
+
+!|fixtures.LoginApiFixture|
+|username|password|result?|errorMessage?|
+|johnd|m38rmF$|success|none|
+
+!3 Failed Login - Wrong Password
+!|fixtures.LoginApiFixture|
+|username|password|result?|errorMessage?|
+|johnd|wrongpassword|fail|Unauthorized|
+
+!3 Failed Login - User Not Found
+!|fixtures.LoginApiFixture|
+|username|password|result?|errorMessage?|
+|nonexistentuser|anypassword|fail|User not found|
+
+!2 Extended API Tests
+
+!3 Test Products Endpoint
+!|fixtures.LoginApiFixture|
+|username|password|result?|errorMessage?|
+|johnd|m38rmF$|success|none|
+
+!3 Test Carts Endpoint with Error Codes
+!|fixtures.LoginApiFixture|
+|username|password|result?|errorMessage?|
+|johnd|m38rmF$|success|none|

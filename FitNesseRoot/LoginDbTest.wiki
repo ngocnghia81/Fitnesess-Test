@@ -1,0 +1,41 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+!define COMMAND_PATTERN {java -cp %p fitnesse.slim.SlimService}
+!path D:\Documents\FitNesseFixtures
+!path D:\Documents\FitNesseFixtures\fixtures
+!path D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar
+!path D:\Documents\FitNesseFixtures\sqlite-jdbc-3.42.0.0.jar
+
+!1 Database Login Test
+
+This test verifies the database operations using the DatabaseFixture.
+
+!2 Test Cases
+
+!3 Check User Role
+!|Import|
+|fixtures|
+
+!|fixtures.DatabaseFixture|
+|username|expectedRole?|
+|johnd|customer|
+|nonexistentuser|none|
+
+!2 Extended Database Tests
+
+!3 Test Order Table Queries
+!|Comment|
+|This is a placeholder for order table tests|
+|In a real implementation, we would add tests for order operations|
+
+!3 Test Product Table Queries
+!|Comment|
+|This is a placeholder for product table tests|
+|In a real implementation, we would add tests for product operations|
+
+!3 Test Data Integrity
+!|Comment|
+|This is a placeholder for data integrity tests|
+|In a real implementation, we would add tests to verify data integrity constraints|

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20250223</FitNesseVersion>
+  <rootPath>RecentChanges.LoginDbTest</rootPath>
+  <result>
+    <counts>
+      <right>2</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <date>2025-05-22T00:37:13+07:00</date>
+    <runTimeInMillis>345</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;variable defined: COMMAND_PATTERN=java -cp %p fitnesse.slim.SlimService&lt;/span&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;classpath: D:\Documents\FitNesseFixtures&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: D:\Documents\FitNesseFixtures\sqlite-jdbc-3.42.0.0.jar&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="2"&gt;&lt;span class="pass"&gt;DatabaseFixture&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;username&lt;/td&gt;
+		&lt;td&gt;expectedRole?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;johnd&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;customer&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;fakeuser&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;none&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>LoginDbTest</relativePageName>
+    <instructions>
+      <instructionResult>
+        <instruction>{id='decisionTable_0_0', instruction='make', instanceName='decisionTable_0', className='DatabaseFixture', args=[]}</instruction>
+        <slimResult>pass(DatabaseFixture)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_0_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>DatabaseFixture</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_0_4', instruction='call', instanceName='decisionTable_0', methodName='setUsername', args=[johnd]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_0_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_0_6', instruction='call', instanceName='decisionTable_0', methodName='expectedRole', args=[]}</instruction>
+        <slimResult>pass(customer)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_0_6</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>customer</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_0_8', instruction='call', instanceName='decisionTable_0', methodName='setUsername', args=[fakeuser]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_0_8</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_0_10', instruction='call', instanceName='decisionTable_0', methodName='expectedRole', args=[]}</instruction>
+        <slimResult>pass(none)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_0_10</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>none</evaluationMessage>
+        </expectation>
+      </instructionResult>
+    </instructions>
+  </result>
+  <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>java -cp D:\Documents\FitNesseFixtures;D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar;D:\Documents\FitNesseFixtures\sqlite-jdbc-3.42.0.0.jar;D:\Documents\FitNesseFix;D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar fitnesse.slim.SlimService 1</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>1</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>593</totalRunTimeInMillis>
+</testResults>
+

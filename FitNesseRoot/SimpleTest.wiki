@@ -1,0 +1,19 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+!define COMMAND_PATTERN {java -cp %p fitnesse.slim.SlimService}
+!path D:\Documents\FitNesseFixtures
+!path D:\Documents\FitNesseFixtures\fixtures
+!path D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar
+!path D:\Documents\FitNesseFixtures\sqlite-jdbc-3.42.0.0.jar
+
+!1 Simple Test
+
+This is a simple test to verify that FitNesse can find and run a Java fixture.
+
+!2 Test Cases
+
+!|fixtures.LoginApiFixture|
+|username|password|result?|errorMessage?|
+|johnd|m38rmF$|success|none|

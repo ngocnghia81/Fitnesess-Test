@@ -1,0 +1,16 @@
+!define TEST_SYSTEM {slim}
+!define COMMAND_PATTERN {java -cp %p fitnesse.slim.SlimService}
+!path D:\Documents\FitNesseFixtures
+!path D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar
+!path D:\Documents\FitNesseFixtures\selenium-server.jar
+
+!|LoginUiFixture|
+|username|password|action|element|expectedResult?|errorMessage?|
+|johnd|m38rmF$|input|username|johnd|none|
+|johnd|m38rmF$|input|password|m38rmF$|none|
+|johnd|m38rmF$|click|loginButton||none|
+|johnd|m38rmF$|check|result|Login successful|none|
+|johnd|wrong|input|username|johnd|none|
+|johnd|wrong|input|password|wrong|none|
+|johnd|wrong|click|loginButton||none|
+|johnd|wrong|check|result|Login failed|Invalid credentials|

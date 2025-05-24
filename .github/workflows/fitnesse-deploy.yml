@@ -1,0 +1,59 @@
+name: FitNesse Deploy
+
+on:
+  workflow_run:
+    workflows: ["FitNesse Tests"]
+    branches: [main, master]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+    
+    - name: Create deployment package
+      run: |
+        mkdir -p deployment
+        Copy-Item -Path "*.java" -Destination deployment/ -ErrorAction SilentlyContinue
+        Copy-Item -Path "*.class" -Destination deployment/ -ErrorAction SilentlyContinue
+        Copy-Item -Path "*.jar" -Destination deployment/ -ErrorAction SilentlyContinue
+        Copy-Item -Path "*.bat" -Destination deployment/ -ErrorAction SilentlyContinue
+        Copy-Item -Path "*.db" -Destination deployment/ -ErrorAction SilentlyContinue
+        Copy-Item -Path "FitNesseRoot" -Destination deployment/ -Recurse
+        Compress-Archive -Path deployment/* -DestinationPath fitnesse-deployment.zip
+    
+    - name: Upload deployment artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: fitnesse-deployment
+        path: fitnesse-deployment.zip
+    
+    - name: Create GitHub Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: fitnesse-deployment.zip
+        name: FitNesse Release ${{ github.ref_name }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    # The following step is for demonstration purposes
+    # In a real environment, you would deploy to your actual server
+    - name: Deploy (simulated)
+      run: |
+        echo "Deploying FitNesse to production environment"
+        echo "Deployment successful!" 

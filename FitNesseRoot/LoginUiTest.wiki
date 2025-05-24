@@ -1,0 +1,43 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+!define COMMAND_PATTERN {java -cp %p fitnesse.slim.SlimService}
+!path D:\Documents\FitNesseFixtures
+!path D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar
+!path D:\Documents\FitNesseFixtures\sqlite-jdbc-3.42.0.0.jar
+
+!1 UI Login Test
+
+This test verifies the UI login functionality using the LoginUiFixture.
+
+!2 Test Cases
+
+!3 Successful Login
+!|Import|
+|fixtures|
+
+!|fixtures.LoginUiFixture|
+|username|password|action|element|expectedResult?|errorMessage?|
+|johnd|m38rmF$|input|username|success|none|
+|johnd|m38rmF$|input|password|success|none|
+|johnd|m38rmF$|click|loginButton|success|none|
+
+!3 Failed Login - Wrong Password
+!|fixtures.LoginUiFixture|
+|username|password|action|element|expectedResult?|errorMessage?|
+|johnd|wrongpassword|input|username|success|none|
+|johnd|wrongpassword|input|password|success|none|
+|johnd|wrongpassword|click|loginButton|fail|Incorrect username or password|
+
+!2 Extended UI Tests
+
+!3 Test Registration Flow
+!|Comment|
+|This is a placeholder for registration flow tests|
+|In a real implementation, we would add tests for registration process|
+
+!3 Test Forgot Password Flow
+!|Comment|
+|This is a placeholder for forgot password tests|
+|In a real implementation, we would add tests for password recovery|

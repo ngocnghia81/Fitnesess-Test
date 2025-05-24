@@ -1,0 +1,14 @@
+|RecentChanges.LoginUiTest||24:51:28 Thu, May 22, 2025|
+|RecentChanges.LoginDbTest||24:37:11 Thu, May 22, 2025|
+|RecentChanges.LoginApiTest||24:35:32 Thu, May 22, 2025|
+|RecentChanges||16:00:03 Wed, May 21, 2025|
+!define TEST_SYSTEM {slim}
+!define COMMAND_PATTERN {python -m slimpy %p}
+!path D:\Documents\FitNesseFix
+
+
+!|LoginApiFixture|
+|username|password|result?|errorMessage?|
+|johnd   |m38rmF$ |success|none|
+|johnd   |sai_pass|fail  |Unauthorized|
+|fakeuser|123456  |fail  |User not found|

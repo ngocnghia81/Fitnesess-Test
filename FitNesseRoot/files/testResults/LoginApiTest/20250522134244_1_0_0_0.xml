@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20250223</FitNesseVersion>
+  <rootPath>LoginApiTest</rootPath>
+  <result>
+    <counts>
+      <right>10</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <date>2025-05-22T13:42:45+07:00</date>
+    <runTimeInMillis>352</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;variable defined: COMMAND_PATTERN=java -cp %p fitnesse.slim.SlimService&lt;/span&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;classpath: D:\Documents\FitNesseFixtures&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: D:\Documents\FitNesseFixtures\fixtures&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: D:\Documents\FitNesseFixtures\sqlite-jdbc-3.42.0.0.jar&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;h1 id="0"&gt;API Login Test&lt;/h1&gt;
+&lt;br/&gt;This test verifies the login functionality of the API using the LoginApiFixture&lt;a title="create page" href="LoginApiFixture?edit&amp;amp;nonExistent=true"&gt;[?]&lt;/a&gt;.&lt;br/&gt;&lt;br/&gt;&lt;h2 id="1"&gt;Test Cases&lt;/h2&gt;
+&lt;br/&gt;&lt;h3 id="2"&gt;Successful Login&lt;/h3&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;Import&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;fixtures&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="4"&gt;&lt;span class="pass"&gt;fixtures.LoginApiFixture&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;username&lt;/td&gt;
+		&lt;td&gt;password&lt;/td&gt;
+		&lt;td&gt;result?&lt;/td&gt;
+		&lt;td&gt;errorMessage?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;johnd&lt;/td&gt;
+		&lt;td&gt;m38rmF$&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;success&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;none&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;h3 id="3"&gt;Failed Login - Wrong Password&lt;/h3&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="4"&gt;&lt;span class="pass"&gt;fixtures.LoginApiFixture&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;username&lt;/td&gt;
+		&lt;td&gt;password&lt;/td&gt;
+		&lt;td&gt;result?&lt;/td&gt;
+		&lt;td&gt;errorMessage?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;johnd&lt;/td&gt;
+		&lt;td&gt;wrongpassword&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;fail&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;Unauthorized&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;h3 id="4"&gt;Failed Login - User Not Found&lt;/h3&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="4"&gt;&lt;span class="pass"&gt;fixtures.LoginApiFixture&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;username&lt;/td&gt;
+		&lt;td&gt;password&lt;/td&gt;
+		&lt;td&gt;result?&lt;/td&gt;
+		&lt;td&gt;errorMessage?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;nonexistentuser&lt;/td&gt;
+		&lt;td&gt;anypassword&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;fail&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;User not found&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;h2 id="5"&gt;Extended API Tests&lt;/h2&gt;
+&lt;br/&gt;&lt;h3 id="6"&gt;Test Products Endpoint&lt;/h3&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="4"&gt;&lt;span class="pass"&gt;fixtures.LoginApiFixture&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;username&lt;/td&gt;
+		&lt;td&gt;password&lt;/td&gt;
+		&lt;td&gt;result?&lt;/td&gt;
+		&lt;td&gt;errorMessage?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;johnd&lt;/td&gt;
+		&lt;td&gt;m38rmF$&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;success&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;none&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;h3 id="7"&gt;Test Carts Endpoint with Error Codes&lt;/h3&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="4"&gt;&lt;span class="pass"&gt;fixtures.LoginApiFixture&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;username&lt;/td&gt;
+		&lt;td&gt;password&lt;/td&gt;
+		&lt;td&gt;result?&lt;/td&gt;
+		&lt;td&gt;errorMessage?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;johnd&lt;/td&gt;
+		&lt;td&gt;m38rmF$&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;success&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;none&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>LoginApiTest</relativePageName>
+    <instructions>
+      <instructionResult>
+        <instruction>{id='import_0_0', instruction='import', path='fixtures'}</instruction>
+        <slimResult>pass(fixtures)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>import_0_0</instructionId>
+          <col>0</col>
+          <row>1</row>
+          <type>ImportExpectation</type>
+          <evaluationMessage>fixtures</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_0', instruction='make', instanceName='decisionTable_1', className='fixtures.LoginApiFixture', args=[]}</instruction>
+        <slimResult>pass(fixtures.LoginApiFixture)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_1_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>fixtures.LoginApiFixture</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_4', instruction='call', instanceName='decisionTable_1', methodName='setUsername', args=[johnd]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_1_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_5', instruction='call', instanceName='decisionTable_1', methodName='setPassword', args=[m38rmF$]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_1_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_7', instruction='call', instanceName='decisionTable_1', methodName='result', args=[]}</instruction>
+        <slimResult>pass(success)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_1_7</instructionId>
+          <col>2</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>success</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_8', instruction='call', instanceName='decisionTable_1', methodName='errorMessage', args=[]}</instruction>
+        <slimResult>pass(none)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_1_8</instructionId>
+          <col>3</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>none</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_0', instruction='make', instanceName='decisionTable_2', className='fixtures.LoginApiFixture', args=[]}</instruction>
+        <slimResult>pass(fixtures.LoginApiFixture)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_2_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>fixtures.LoginApiFixture</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_4', instruction='call', instanceName='decisionTable_2', methodName='setUsername', args=[johnd]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_2_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_5', instruction='call', instanceName='decisionTable_2', methodName='setPassword', args=[wrongpassword]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_2_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_7', instruction='call', instanceName='decisionTable_2', methodName='result', args=[]}</instruction>
+        <slimResult>pass(fail)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_2_7</instructionId>
+          <col>2</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>fail</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_8', instruction='call', instanceName='decisionTable_2', methodName='errorMessage', args=[]}</instruction>
+        <slimResult>pass(Unauthorized)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_2_8</instructionId>
+          <col>3</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>Unauthorized</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_0', instruction='make', instanceName='decisionTable_3', className='fixtures.LoginApiFixture', args=[]}</instruction>
+        <slimResult>pass(fixtures.LoginApiFixture)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_3_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>fixtures.LoginApiFixture</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_4', instruction='call', instanceName='decisionTable_3', methodName='setUsername', args=[nonexistentuser]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_3_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_5', instruction='call', instanceName='decisionTable_3', methodName='setPassword', args=[anypassword]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_3_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_7', instruction='call', instanceName='decisionTable_3', methodName='result', args=[]}</instruction>
+        <slimResult>pass(fail)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_3_7</instructionId>
+          <col>2</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>fail</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_8', instruction='call', instanceName='decisionTable_3', methodName='errorMessage', args=[]}</instruction>
+        <slimResult>pass(User not found)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_3_8</instructionId>
+          <col>3</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>User not found</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_0', instruction='make', instanceName='decisionTable_4', className='fixtures.LoginApiFixture', args=[]}</instruction>
+        <slimResult>pass(fixtures.LoginApiFixture)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_4_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>fixtures.LoginApiFixture</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_4', instruction='call', instanceName='decisionTable_4', methodName='setUsername', args=[johnd]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_4_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_5', instruction='call', instanceName='decisionTable_4', methodName='setPassword', args=[m38rmF$]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_4_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_7', instruction='call', instanceName='decisionTable_4', methodName='result', args=[]}</instruction>
+        <slimResult>pass(success)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_4_7</instructionId>
+          <col>2</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>success</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_8', instruction='call', instanceName='decisionTable_4', methodName='errorMessage', args=[]}</instruction>
+        <slimResult>pass(none)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_4_8</instructionId>
+          <col>3</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>none</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_0', instruction='make', instanceName='decisionTable_5', className='fixtures.LoginApiFixture', args=[]}</instruction>
+        <slimResult>pass(fixtures.LoginApiFixture)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_5_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>fixtures.LoginApiFixture</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_4', instruction='call', instanceName='decisionTable_5', methodName='setUsername', args=[johnd]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_5', instruction='call', instanceName='decisionTable_5', methodName='setPassword', args=[m38rmF$]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_7', instruction='call', instanceName='decisionTable_5', methodName='result', args=[]}</instruction>
+        <slimResult>pass(success)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_5_7</instructionId>
+          <col>2</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>success</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_8', instruction='call', instanceName='decisionTable_5', methodName='errorMessage', args=[]}</instruction>
+        <slimResult>pass(none)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_5_8</instructionId>
+          <col>3</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>none</evaluationMessage>
+        </expectation>
+      </instructionResult>
+    </instructions>
+  </result>
+  <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>java -cp D:\Documents\FitNesseFixtures;D:\Documents\FitNesseFixtures\fixtures;D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar;D:\Documents\FitNesseFixtures\sqlite-jdbc-3.42.0.0.jar;D:\workspace\university\Nam3_HK2\KiemDinhPhanMem\Fitnesse\fitnesse-standalone.jar fitnesse.slim.SlimService 1</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>1</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>641</totalRunTimeInMillis>
+</testResults>
+
